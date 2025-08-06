@@ -23,14 +23,8 @@ public class UsarPersona : MonoBehaviour
             Debug.Log(listaE[i].NameP + " " + listaE[i].NameCarrera);   
         }
 
-        // Puntos 2D
-        Punto2D p1 = new Punto2D(10.5, 20.3);
-        Punto2D p2 = new Punto2D(5.7, 15.9);
-        listaP.Add(p1);
-        listaP.Add(p2);
-
         // Guardar en JSON
-        Utilidades.GuardarEstudiantesYPuntos(listaE, listaP);
+        Utilidades.GuardarEstudiantes(listaE);
     }
 
     // Update is called once per frame

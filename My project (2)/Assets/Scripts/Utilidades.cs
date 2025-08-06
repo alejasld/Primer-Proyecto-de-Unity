@@ -16,13 +16,23 @@ public class Utilidades
 
     private static string rutaArchivo = Application.persistentDataPath + "/datos.json";
 
-    public static void GuardarEstudiantesYPuntos(List<Estudiante> estudiantes, List<Punto2D> puntos)
+    public static void GuardarEstudiantes(List<Estudiante> estudiantes)
     {
         ContenedorDatos datos = new ContenedorDatos();
         datos.estudiantes = estudiantes;
+
+        string json = JsonUtility.ToJson(datos, true); 
+        File.WriteAllText(rutaArchivo, json);
+
+        Debug.Log("Datos guardados correctamente en: " + rutaArchivo);
+    }
+
+    public static void GuardarPuntos(List<Punto2D> puntos)
+    {
+        ContenedorDatos datos = new ContenedorDatos();
         datos.puntos2D = puntos;
 
-        string json = JsonUtility.ToJson(datos, true); // true = bonito
+        string json = JsonUtility.ToJson(datos, true); 
         File.WriteAllText(rutaArchivo, json);
 
         Debug.Log("Datos guardados correctamente en: " + rutaArchivo);
