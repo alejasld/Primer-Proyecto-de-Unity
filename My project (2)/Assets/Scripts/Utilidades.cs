@@ -4,37 +4,47 @@ using System.IO;
 using System;
 using PackagePersona;
 using PackagePunto2D;
+using System.Runtime.Serialization;
 
 public class Utilidades
 {
-    [Serializable]
-    private class ContenedorDatos
-    {
-        public List<Estudiante> estudiantes;
-        public List<Punto2D> puntos2D;
-    }
+//    [Serializable]
+//    private class ContenedorDatos
+//    {
+//        public List<Estudiante> estudiantes;
+//        public List<Punto2D> puntos2D;
+//    }
 
-    private static string rutaArchivo = Application.persistentDataPath + "/datos.json";
+//    private static string rutaArchivo = Application.persistentDataPath + "/datos.json";
 
-    public static void GuardarEstudiantes(List<Estudiante> estudiantes)
-    {
-        ContenedorDatos datos = new ContenedorDatos();
-        datos.estudiantes = estudiantes;
+//    public static void GuardarEstudiantes(List<Estudiante> estudiantes)
+//    {
+//        ContenedorDatos datos = new ContenedorDatos();
+//        datos.estudiantes = estudiantes;
 
-        string json = JsonUtility.ToJson(datos, true); 
-        File.WriteAllText(rutaArchivo, json);
+//        string json = JsonUtility.ToJson(datos, true); 
+//        File.WriteAllText(rutaArchivo, json);
 
-        Debug.Log("Datos guardados correctamente en: " + rutaArchivo);
-    }
+//        Debug.Log("Datos guardados correctamente en: " + rutaArchivo);
+//    }
 
-    public static void GuardarPuntos(List<Punto2D> puntos)
-    {
-        ContenedorDatos datos = new ContenedorDatos();
-        datos.puntos2D = puntos;
+//    public static void GuardarPuntos(List<Punto2D> puntos)
+//    {
+//        ContenedorDatos datos = new ContenedorDatos();
+//        datos.puntos2D = puntos;
 
-        string json = JsonUtility.ToJson(datos, true); 
-        File.WriteAllText(rutaArchivo, json);
+//        string json = JsonUtility.ToJson(datos, true); 
+//        File.WriteAllText(rutaArchivo, json);
 
-        Debug.Log("Datos guardados correctamente en: " + rutaArchivo);
+//        Debug.Log("Datos guardados correctamente en: " + rutaArchivo);
+//    }
+
+    public static bool SaveDataStudent(List<Estudiante> listaE){
+        bool resultado = false;
+        string jsonString= JsonUtility.ToJson(listaE, true);
+        Debug.Log("Lista " + jsonString);
+        return resultado;
+
     }
 }
+

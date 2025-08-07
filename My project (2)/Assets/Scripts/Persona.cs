@@ -6,9 +6,9 @@ namespace PackagePersona
     [Serializable]
     public class Persona
     {
-        [SerializeField] private string nameP;
-        [SerializeField] private string mailP;
-        [SerializeField] private string dirP;
+        [SerializeField] public string nameP;
+        [SerializeField] public string mailP;
+        [SerializeField] public string dirP;
 
         public Persona()
         {

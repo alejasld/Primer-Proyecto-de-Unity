@@ -5,8 +5,8 @@ namespace PackagePersona
 {
     public class Estudiante : Persona
     {
-        [SerializeField] private string codeE;
-        [SerializeField] private string nameCarrera;
+        [SerializeField] public string codeE;
+        [SerializeField] public string nameCarrera;
 
         public Estudiante()
         {
