@@ -548,6 +548,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 109081911}
   m_CullTransparentMesh: 1
+--- !u!1 &131514843
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 131514844}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &131514844
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131514843}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1279.7914, y: 565.51666, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &410138233
 GameObject:
   m_ObjectHideFlags: 0
@@ -884,7 +915,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 490, y: 27}
+  m_AnchoredPosition: {x: 390.2, y: 24.2}
   m_SizeDelta: {x: 204.5813, y: 172.4835}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &522615895
@@ -1327,7 +1358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &805874601
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2224,7 +2255,7 @@ GameObject:
   - component: {fileID: 930637828}
   - component: {fileID: 930637827}
   m_Layer: 5
-  m_Name: InputField (TMP) (4)
+  m_Name: InputDireccion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2906,8 +2937,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 21
+  m_fontSizeBase: 21
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2971,7 +3002,7 @@ GameObject:
   - component: {fileID: 1497199935}
   - component: {fileID: 1497199934}
   m_Layer: 5
-  m_Name: InputField (TMP) (3)
+  m_Name: InputEmail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3580,7 +3611,7 @@ GameObject:
   - component: {fileID: 1642703021}
   - component: {fileID: 1642703020}
   m_Layer: 5
-  m_Name: InputField (TMP) (1)
+  m_Name: InputCarrera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3810,7 +3841,7 @@ GameObject:
   - component: {fileID: 1680103313}
   - component: {fileID: 1680103312}
   m_Layer: 5
-  m_Name: InputField (TMP)
+  m_Name: InputCodigo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3993,7 +4024,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1750098396
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4734,7 +4765,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1863972125
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4850,7 +4881,7 @@ GameObject:
   - component: {fileID: 1870922008}
   - component: {fileID: 1870922007}
   m_Layer: 5
-  m_Name: InputField (TMP) (2)
+  m_Name: InputNombre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5032,7 +5063,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1947436470
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5317,3 +5348,4 @@ SceneRoots:
   - {fileID: 530671306}
   - {fileID: 1348934181}
   - {fileID: 593431050}
+  - {fileID: 131514844}
