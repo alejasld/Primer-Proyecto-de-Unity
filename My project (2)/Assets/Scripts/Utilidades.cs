@@ -2,12 +2,50 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
 using System;
+
 using PackagePersona;
 using PackagePunto2D;
-using System.Runtime.Serialization;
 
 public class Utilidades
 {
+    [Serializable]
+    private class EstudianteData
+    {
+        public List<Estudiante> estudiantes;
+    }
+
+    public static bool SaveDataStudent(List<Estudiante> listaE)
+    {
+        bool resultado = false;
+
+        try
+        {
+           
+            EstudianteData data = new EstudianteData();
+            data.estudiantes = listaE;
+
+            
+            string jsonString = JsonUtility.ToJson(data, true);
+
+    
+            string ruta = Path.Combine(Application.streamingAssetsPath, "estudiantes.json");
+
+            Directory.CreateDirectory(Application.streamingAssetsPath);
+
+          
+            File.WriteAllText(ruta, jsonString);
+
+            Debug.Log("Lista guardada en: " + ruta);
+            resultado = true;
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError("Error guardando estudiantes: " + ex.Message);
+        }
+
+        return resultado;
+    }
+}
 //    [Serializable]
 //    private class ContenedorDatos
 //    {
@@ -39,12 +77,5 @@ public class Utilidades
 //        Debug.Log("Datos guardados correctamente en: " + rutaArchivo);
 //    }
 
-    public static bool SaveDataStudent(List<Estudiante> listaE){
-        bool resultado = false;
-        string jsonString= JsonUtility.ToJson(listaE, true);
-        Debug.Log("Lista " + jsonString);
-        return resultado;
 
-    }
-}
 

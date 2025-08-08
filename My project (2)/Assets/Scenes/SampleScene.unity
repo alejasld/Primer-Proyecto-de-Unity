@@ -548,7 +548,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 109081911}
   m_CullTransparentMesh: 1
---- !u!1 &131514843
+--- !u!1 &321761655
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -556,29 +556,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 131514844}
+  - component: {fileID: 321761656}
+  - component: {fileID: 321761657}
   m_Layer: 0
-  m_Name: MouseoverPanel
+  m_Name: ScriptMouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &131514844
+--- !u!4 &321761656
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 131514843}
+  m_GameObject: {fileID: 321761655}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1279.7914, y: 565.51666, z: 0}
+  m_LocalPosition: {x: 960, y: 540, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &321761657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 321761655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94468307faade354687279bd58cfb67f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelRosado: {fileID: 522615894}
+  botonGuardar: {fileID: 1863972126}
 --- !u!1 &410138233
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,6 +639,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22914374f406a434aa968453c55f5ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  codeStudent: {fileID: 0}
+  carreraStudent: {fileID: 0}
+  nameStudent: {fileID: 0}
+  mailStudent: {fileID: 0}
+  dirStudent: {fileID: 0}
 --- !u!114 &410138236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -915,7 +935,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 390.2, y: 24.2}
+  m_AnchoredPosition: {x: 0, y: -0.000011444092}
   m_SizeDelta: {x: 204.5813, y: 172.4835}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &522615895
@@ -985,6 +1005,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22914374f406a434aa968453c55f5ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  codeStudent: {fileID: 1680103312}
+  carreraStudent: {fileID: 1642703020}
+  nameStudent: {fileID: 1870922007}
+  mailStudent: {fileID: 1497199934}
+  dirStudent: {fileID: 930637827}
 --- !u!4 &530671306
 Transform:
   m_ObjectHideFlags: 0
@@ -1179,7 +1204,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &638703101
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2502,7 +2527,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 946807569}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 530671305}
+        m_TargetAssemblyTypeName: UsarPersona, Assembly-CSharp
+        m_MethodName: ShowStudentList
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &946807569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3249,7 +3286,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1531311465}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 530671305}
+        m_TargetAssemblyTypeName: UsarPersona, Assembly-CSharp
+        m_MethodName: AddStudentList
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1531311465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5604,4 +5653,4 @@ SceneRoots:
   - {fileID: 530671306}
   - {fileID: 1348934181}
   - {fileID: 593431050}
-  - {fileID: 131514844}
+  - {fileID: 321761656}

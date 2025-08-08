@@ -37,15 +37,15 @@ public class UsarPersona : MonoBehaviour
     }
 
 public void AddStudentList(){
-    //string codeStudent1 = codeStudent.text;
-    //string carreraStudent1 = carreraStudent.text;
-    //string nameStudent1 = nameStudent.text;
-    //string mailStudent1 = mailStudent.text;
-    //string dirStudent1 = dirStudent.text;
+    string codeStudent1 = codeStudent.text;
+    string carreraStudent1 = carreraStudent.text;
+    string nameStudent1 = nameStudent.text;
+    string mailStudent1 = mailStudent.text;
+    string dirStudent1 = dirStudent.text;
 
-    //    Estudiante e1 = new Estudiante(codeStudent1, carreraStudent1, nameStudent1, mailStudent1, dirStudent1);
+    Estudiante e1 = new Estudiante(codeStudent1, carreraStudent1, nameStudent1, mailStudent1, dirStudent1);
 
-    //    listaE.Add(e1);
+    listaE.Add(e1);
     }
 
 public void ShowStudentList()
