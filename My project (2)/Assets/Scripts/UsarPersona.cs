@@ -6,11 +6,11 @@ using TMPro;
 public class UsarPersona : MonoBehaviour
 {
     List<Estudiante> listaE= new List<Estudiante>();
-    private TMP_InputField codeStudent;
-    private TMP_InputField carreraStudent;
-    private TMP_InputField nameStudent;
-    private TMP_InputField mailStudent;
-    private TMP_InputField dirStudent;
+    public TMP_InputField codeStudent;
+    public TMP_InputField carreraStudent;
+    public TMP_InputField nameStudent;
+    public TMP_InputField mailStudent;
+    public TMP_InputField dirStudent;
     
     //// Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Start()
@@ -37,15 +37,15 @@ public class UsarPersona : MonoBehaviour
     }
 
 public void AddStudentList(){
-    string codeStudent1 = codeStudent.text;
-    string carreraStudent1 = carreraStudent.text;
-    string nameStudent1 = nameStudent.text;
-    string mailStudent1 = mailStudent.text;
-    string dirStudent1 = dirStudent.text;
+    //string codeStudent1 = codeStudent.text;
+    //string carreraStudent1 = carreraStudent.text;
+    //string nameStudent1 = nameStudent.text;
+    //string mailStudent1 = mailStudent.text;
+    //string dirStudent1 = dirStudent.text;
 
-        Estudiante e1 = new Estudiante(codeStudent1, carreraStudent1, nameStudent1, mailStudent1, dirStudent1);
+    //    Estudiante e1 = new Estudiante(codeStudent1, carreraStudent1, nameStudent1, mailStudent1, dirStudent1);
 
-        listaE.Add(e1);
+    //    listaE.Add(e1);
     }
 
 public void ShowStudentList()
