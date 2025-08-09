@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 using System.IO;
 
 public class MouseOverPanel : MonoBehaviour
@@ -8,10 +9,11 @@ public class MouseOverPanel : MonoBehaviour
     public Button botonGuardar;
 
     private Vector2 ultimaCoordenada;
+    private List<CoordenadaData> listaCoordenadas = new List<CoordenadaData>();
 
     private void Start()
     {
-        botonGuardar.onClick.AddListener(GuardarCoordenada);
+        botonGuardar.onClick.AddListener(GuardarCoordenadas);
 
         string carpeta = Application.streamingAssetsPath;
         if (!Directory.Exists(carpeta))
@@ -33,25 +35,34 @@ public class MouseOverPanel : MonoBehaviour
                 null,
                 out localMousePos);
 
-            ultimaCoordenada = localMousePos;
-            Debug.Log("Mouse sobre panel rosado, Pos local:" + ultimaCoordenada);
+            // Solo guarda si la posición cambió
+            if (localMousePos != ultimaCoordenada)
+            {
+                ultimaCoordenada = localMousePos;
+                listaCoordenadas.Add(new CoordenadaData
+                {
+                    x = ultimaCoordenada.x,
+                    y = ultimaCoordenada.y
+                });
+
+                Debug.Log("Nueva coordenada registrada: " + ultimaCoordenada);
+            }
         }
     }
 
-    private void GuardarCoordenada()
+    private void GuardarCoordenadas()
     {
-        CoordenadaData data = new CoordenadaData
+        CoordenadasWrapper wrapper = new CoordenadasWrapper
         {
-            x = ultimaCoordenada.x,
-            y = ultimaCoordenada.y
+            coordenadas = listaCoordenadas
         };
 
-        string json = JsonUtility.ToJson(data, true);
+        string json = JsonUtility.ToJson(wrapper, true);
 
-        string ruta = Path.Combine(Application.streamingAssetsPath, "coordenada.json");
+        string ruta = Path.Combine(Application.streamingAssetsPath, "coordenadas.json");
         File.WriteAllText(ruta, json);
 
-        Debug.Log("Coordenada guardada en: " + ruta);
+        Debug.Log("Coordenadas guardadas en: " + ruta);
     }
 }
 
@@ -60,4 +71,10 @@ public class CoordenadaData
 {
     public float x;
     public float y;
+}
+
+[System.Serializable]
+public class CoordenadasWrapper
+{
+    public List<CoordenadaData> coordenadas;
 }

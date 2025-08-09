@@ -2,51 +2,46 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
 using System;
-
 using PackagePersona;
 using PackagePunto2D;
 
 public class Utilidades
 {
-    [Serializable]
-    private class EstudianteData
-    {
-        public List<Estudiante> estudiantes;
-    }
-
     public static bool SaveDataStudent(List<Estudiante> listaE)
     {
-        bool resultado = false;
-
         try
         {
-           
-            EstudianteData data = new EstudianteData();
-            data.estudiantes = listaE;
+            string jsonString = JsonUtility.ToJson(new EstudianteListWrapper { estudiantes= listaE}, true);
+            string folderPath = Application.streamingAssetsPath;
 
-            
-            string jsonString = JsonUtility.ToJson(data, true);
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
 
-    
-            string ruta = Path.Combine(Application.streamingAssetsPath, "estudiantes.json");
+            string filePath = Path.Combine(folderPath, "datos.json");
 
-            Directory.CreateDirectory(Application.streamingAssetsPath);
+             File.WriteAllText(filePath, jsonString);
 
-          
-            File.WriteAllText(ruta, jsonString);
-
-            Debug.Log("Lista guardada en: " + ruta);
-            resultado = true;
+            Debug.Log("Lista guardada en: " + filePath);
+            return true;
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
             Debug.LogError("Error guardando estudiantes: " + ex.Message);
         }
 
-        return resultado;
+        return false;
     }
 }
-//    [Serializable]
+
+[Serializable]
+public class EstudianteListWrapper
+{
+    public List<Estudiante> estudiantes;
+}
+
+
 //    private class ContenedorDatos
 //    {
 //        public List<Estudiante> estudiantes;

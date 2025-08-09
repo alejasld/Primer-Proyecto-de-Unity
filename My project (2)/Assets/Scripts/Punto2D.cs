@@ -8,20 +8,20 @@ namespace PackagePunto2D
 
     public class Punto2D
 {
-        [SerializeField] private double X;
-        [SerializeField] private double Y;
+        [SerializeField] public float x;
+        [SerializeField] public float y;
 
         public Punto2D()
         {
         }
 
-        public Punto2D(double x, double y)
+        public Punto2D(float x, float y)
         {
-            this.X = x;
-            this.Y = y;
+            this.x = x;
+            this.y = y;
         }
 
-        public double X1 { get => X; set => X = value; }
-        public double Y1 { get => Y; set => Y = value; }
+        public float X { get => x; set => x = value; }
+        public float Y { get => y; set => y = value; }
     }
 }
