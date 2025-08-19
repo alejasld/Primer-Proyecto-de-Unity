@@ -3,10 +3,11 @@ using System;
 
 namespace PackagePersona
 {
+    [Serializable]
     public class Estudiante : Persona
     {
-        [SerializeField] public string codeE;
-        [SerializeField] public string nameCarrera;
+        public string codeE;
+        public string nameCarrera;
 
         public Estudiante()
         {
@@ -23,3 +24,5 @@ namespace PackagePersona
         public string NameCarrera { get => nameCarrera; set => nameCarrera = value; }
     }
 }
+
+

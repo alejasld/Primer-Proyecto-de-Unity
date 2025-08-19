@@ -1,76 +1,81 @@
-using UnityEngine;
-using System.Collections.Generic;
-using System.IO;
-using System;
 using PackagePersona;
 using PackagePunto2D;
-
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization;
+using UnityEngine;
 public class Utilidades
 {
     public static bool SaveDataStudent(List<Estudiante> listaE)
     {
         try
         {
-            string jsonString = JsonUtility.ToJson(new EstudianteListWrapper { estudiantes= listaE}, true);
+            string jsonString = JsonUtility.ToJson(new EstudianteListWrapper { estudiantes = listaE }, true);
             string folderPath = Application.streamingAssetsPath;
 
+            // Crear la carpeta si no existe
             if (!Directory.Exists(folderPath))
             {
                 Directory.CreateDirectory(folderPath);
             }
 
-            string filePath = Path.Combine(folderPath, "datos.json");
+            string filePath = Path.Combine(folderPath, "datosEstudiante.json");
 
-             File.WriteAllText(filePath, jsonString);
+            // Escribir el archivo
+            File.WriteAllText(filePath, jsonString);
 
-            Debug.Log("Lista guardada en: " + filePath);
+            Debug.Log(" Archivo JSON guardado correctamente en: " + filePath);
             return true;
         }
         catch (System.Exception ex)
         {
-            Debug.LogError("Error guardando estudiantes: " + ex.Message);
+            Debug.LogError("Error al guardar archivo JSON: " + ex.Message);
+            return false;
         }
+    }
 
-        return false;
+    public static bool SaveDataPuntos(List<Punto2D> listaP)
+    {
+        try
+        {
+            string jsonString = JsonUtility.ToJson(new PuntosListWrapper { puntos = listaP }, true);
+            string folderPath = Application.streamingAssetsPath;
+
+            // Crear la carpeta si no existe
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
+            string filePath = Path.Combine(folderPath, "datosPuntos.json");
+
+            // Escribir el archivo
+            File.WriteAllText(filePath, jsonString);
+
+            Debug.Log(" Archivo JSON guardado correctamente en: " + filePath);
+            return true;
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError("Error al guardar archivo JSON: " + ex.Message);
+            return false;
+        }
     }
 }
 
 [Serializable]
 public class EstudianteListWrapper
 {
+
     public List<Estudiante> estudiantes;
+
 }
 
+[Serializable]
+public class PuntosListWrapper
+{
 
-//    private class ContenedorDatos
-//    {
-//        public List<Estudiante> estudiantes;
-//        public List<Punto2D> puntos2D;
-//    }
+    public List<Punto2D> puntos;
 
-//    private static string rutaArchivo = Application.persistentDataPath + "/datos.json";
-
-//    public static void GuardarEstudiantes(List<Estudiante> estudiantes)
-//    {
-//        ContenedorDatos datos = new ContenedorDatos();
-//        datos.estudiantes = estudiantes;
-
-//        string json = JsonUtility.ToJson(datos, true); 
-//        File.WriteAllText(rutaArchivo, json);
-
-//        Debug.Log("Datos guardados correctamente en: " + rutaArchivo);
-//    }
-
-//    public static void GuardarPuntos(List<Punto2D> puntos)
-//    {
-//        ContenedorDatos datos = new ContenedorDatos();
-//        datos.puntos2D = puntos;
-
-//        string json = JsonUtility.ToJson(datos, true); 
-//        File.WriteAllText(rutaArchivo, json);
-
-//        Debug.Log("Datos guardados correctamente en: " + rutaArchivo);
-//    }
-
-
-
+}

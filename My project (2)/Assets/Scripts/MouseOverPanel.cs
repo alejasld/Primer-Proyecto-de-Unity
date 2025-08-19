@@ -1,80 +1,46 @@
-using UnityEngine;
-using UnityEngine.UI;
+using PackagePersona;
+using PackagePunto2D;
 using System.Collections.Generic;
 using System.IO;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MouseOverPanel : MonoBehaviour
 {
-    public RectTransform panelRosado;
-    public Button botonGuardar;
+    public RectTransform panelRojo; // Asigna aquí tu panel rojo (RectTransform)
+    List<Punto2D> puntos = new List<Punto2D>();
 
-    private Vector2 ultimaCoordenada;
-    private List<CoordenadaData> listaCoordenadas = new List<CoordenadaData>();
-
-    private void Start()
+    public void Start()
     {
-        botonGuardar.onClick.AddListener(GuardarCoordenadas);
-
-        string carpeta = Application.streamingAssetsPath;
-        if (!Directory.Exists(carpeta))
-        {
-            Directory.CreateDirectory(carpeta);
-            Debug.Log("Carpeta StreamingAssets creada en: " + carpeta);
-        }
     }
 
-    private void Update()
+    void Update()
     {
         Vector2 localMousePos;
 
-        if (RectTransformUtility.RectangleContainsScreenPoint(panelRosado, Input.mousePosition))
+        // Verifica si el mouse está sobre el panel
+        if (RectTransformUtility.RectangleContainsScreenPoint(panelRojo, Input.mousePosition))
         {
+            // Convierte a coordenadas locales del panel
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                panelRosado,
+                panelRojo,
                 Input.mousePosition,
-                null,
-                out localMousePos);
+                null, // o Camera.main si el Canvas está en Screen Space - Camera
+                out localMousePos
+            );
 
-            // Solo guarda si la posición cambió
-            if (localMousePos != ultimaCoordenada)
-            {
-                ultimaCoordenada = localMousePos;
-                listaCoordenadas.Add(new CoordenadaData
-                {
-                    x = ultimaCoordenada.x,
-                    y = ultimaCoordenada.y
-                });
+            Punto2D punto2D = new Punto2D(localMousePos.x, localMousePos.y);
+            puntos.Add(punto2D);
 
-                Debug.Log("Nueva coordenada registrada: " + ultimaCoordenada);
-            }
+            //Debug.Log(" Mouse sobre panel rojo. Pos local: " + localMousePos.x);
+            //Debug.Log(" Mouse sobre panel rojo. Pos local: " + localMousePos);
         }
-    }
 
-    private void GuardarCoordenadas()
+    }
+    public void saveDataPuntos()
     {
-        CoordenadasWrapper wrapper = new CoordenadasWrapper
-        {
-            coordenadas = listaCoordenadas
-        };
-
-        string json = JsonUtility.ToJson(wrapper, true);
-
-        string ruta = Path.Combine(Application.streamingAssetsPath, "coordenadas.json");
-        File.WriteAllText(ruta, json);
-
-        Debug.Log("Coordenadas guardadas en: " + ruta);
+        Utilidades.SaveDataPuntos(puntos);
     }
-}
 
-[System.Serializable]
-public class CoordenadaData
-{
-    public float x;
-    public float y;
-}
-
-[System.Serializable]
-public class CoordenadasWrapper
-{
-    public List<CoordenadaData> coordenadas;
 }

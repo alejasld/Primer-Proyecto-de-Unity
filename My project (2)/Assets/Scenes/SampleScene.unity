@@ -592,8 +592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94468307faade354687279bd58cfb67f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelRosado: {fileID: 522615894}
-  botonGuardar: {fileID: 1863972126}
+  panelRojo: {fileID: 0}
 --- !u!1 &410138233
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,11 +638,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22914374f406a434aa968453c55f5ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  codeStudent: {fileID: 0}
-  carreraStudent: {fileID: 0}
   nameStudent: {fileID: 0}
   mailStudent: {fileID: 0}
   dirStudent: {fileID: 0}
+  CodeStudent: {fileID: 0}
+  carreraStudent: {fileID: 0}
 --- !u!114 &410138236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1005,11 +1004,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22914374f406a434aa968453c55f5ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  codeStudent: {fileID: 1680103312}
-  carreraStudent: {fileID: 1642703020}
   nameStudent: {fileID: 1870922007}
   mailStudent: {fileID: 1497199934}
   dirStudent: {fileID: 930637827}
+  CodeStudent: {fileID: 1680103312}
+  carreraStudent: {fileID: 1642703020}
 --- !u!4 &530671306
 Transform:
   m_ObjectHideFlags: 0

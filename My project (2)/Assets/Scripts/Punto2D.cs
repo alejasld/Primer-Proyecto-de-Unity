@@ -1,6 +1,5 @@
 using UnityEngine;
 using System;
-using Unity.VisualScripting;
 
 namespace PackagePunto2D
 {
@@ -25,3 +24,6 @@ namespace PackagePunto2D
         public float Y { get => y; set => y = value; }
     }
 }
+
+    
+
